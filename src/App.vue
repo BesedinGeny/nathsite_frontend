@@ -3,14 +3,15 @@
   <router-view />
 </template>
 
-<style lang="scss">
-body {
-  margin: 0;
-}
-</style>
 <script>
 import NavComponent from "@/components/NavComponent";
 export default {
   components: { NavComponent },
 };
 </script>
+
+<style lang="scss">
+body {
+  margin: 0;
+}
+</style>

@@ -1,13 +1,15 @@
 <template>
   <div class="navDesktop">
-    <input type="image" class="logo" :src="require(`@/assets/Vector.png`)" />
-    <div class="linksAndEnter">
-      <div class="links">
-        <div class="link" v-for="item in arrOfLinks" :key="item">
-          {{ item }}
+    <input type="image" class="logo" :src="require(`@/assets/Vector.svg`)" />
+    <div class="hyperlinkAndLogInPanel">
+      <div class="hyperlink">
+        <div v-for="item in hyperlink" :key="item">
+          <router-link class="link" :to="item[0]">
+          {{ item[1] }}
+            </router-link>
         </div>
       </div>
-      <input type="image" class="Enter" :src="require(`@/assets/Enter.png`)" />
+      <input type="image" class="Enter" :src="require(`@/assets/LogIn.svg`)" />
     </div>
   </div>
 </template>
@@ -17,7 +19,11 @@ export default {
   name: "NavComponent",
   data: () => {
     return {
-      arrOfLinks: ["Главная", "Материалы", "Услуги"],
+      hyperlink: [
+        ["/", "Главная"],
+        ["/materials", "Материалы"],
+        ["/services", "Услуги"],
+      ],
     };
   },
 };
@@ -32,6 +38,7 @@ export default {
 @mixin font
   font-family: Inter, sans-serif
   font-style: normal
+  color: black
   font-size: 18px
   line-height: 19.36px
   font-weight: 400
@@ -43,11 +50,14 @@ export default {
   z-index: 1
   background-color: white
   @include displayRow
-.linksAndEnter
+.hyperlinkAndLogInPanel
   width: 375px
   margin-right: 60px
   @include displayRow
-.links
+.hyperlink
   width: 277px
   @include displayRow
+.link
+  text-decoration: none
+  @include font
 </style>

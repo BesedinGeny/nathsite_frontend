@@ -1,12 +1,13 @@
 <template>
-  <div></div>
+ <div></div>
 </template>
 
 <script>
 export default {
-  name: "HomePage",
+  name: "ServicesPage"
 }
 </script>
 
-<style lang="sass" scoped>
+<style scoped>
+
 </style>
