@@ -1,5 +1,5 @@
 <template>
-  <nav-component></nav-component>
+  <nav-component />
   <router-view />
 </template>
 
@@ -10,8 +10,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
-body {
-  margin: 0;
-}
+<style lang="sass">
+body
+  margin: 0
 </style>

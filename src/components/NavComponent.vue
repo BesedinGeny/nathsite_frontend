@@ -1,15 +1,15 @@
 <template>
   <div class="navDesktop">
     <input type="image" class="logo" :src="require(`@/assets/Vector.svg`)" />
-    <div class="hyperlinkAndLogInPanel">
-      <div class="hyperlink">
-        <div v-for="item in hyperlink" :key="item">
+    <div class="navButtonsContainer">
+      <div class="navButton">
+        <div v-for="item in pathsToPages" :key="item">
           <router-link class="link" :to="item[0]">
           {{ item[1] }}
             </router-link>
         </div>
       </div>
-      <input type="image" class="Enter" :src="require(`@/assets/LogIn.svg`)" />
+      <input type="image" class="LogIn" :src="require(`@/assets/LogIn.svg`)" />
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
   name: "NavComponent",
   data: () => {
     return {
-      hyperlink: [
+      pathsToPages: [
         ["/", "Главная"],
         ["/materials", "Материалы"],
         ["/services", "Услуги"],
@@ -50,11 +50,11 @@ export default {
   z-index: 1
   background-color: white
   @include displayRow
-.hyperlinkAndLogInPanel
+.navButtonsContainer
   width: 375px
   margin-right: 60px
   @include displayRow
-.hyperlink
+.navButton
   width: 277px
   @include displayRow
 .link
