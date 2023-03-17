@@ -1,15 +1,11 @@
 <template>
-  <div class="navDesktop">
-    <input type="image" class="logo" :src="require(`@/assets/Vector.svg`)" />
+  <div class="navContainerForDesktop">
+    <input class="logo" type="image"  :src="require(`@/assets/Vector.svg`)" />
     <div class="navButtonsContainer">
-      <div class="navButton">
-        <div v-for="item in pathsToPages" :key="item">
-          <router-link class="link" :to="item[0]">
-          {{ item[1] }}
-            </router-link>
-        </div>
-      </div>
-      <input type="image" class="LogIn" :src="require(`@/assets/LogIn.svg`)" />
+          <router-link class="navButton" v-for="item in pathsToPages" :key="item" :to="item.url">
+            {{ item.lable }}
+          </router-link>
+      <input class="LogInButton" type="image"  :src="require(`@/assets/LogIn.svg`)" />
     </div>
   </div>
 </template>
@@ -20,9 +16,9 @@ export default {
   data: () => {
     return {
       pathsToPages: [
-        ["/", "Главная"],
-        ["/materials", "Материалы"],
-        ["/services", "Услуги"],
+        {url: "/", lable: "Главная"},
+        {url: "/materials", lable: "Материалы"},
+        {url: "/services", lable: "Услуги"},
       ],
     };
   },
@@ -42,7 +38,8 @@ export default {
   font-size: 18px
   line-height: 19.36px
   font-weight: 400
-.navDesktop
+
+.navContainerForDesktop
   width: 100vw
   padding-left: 30px
   height: 70px
@@ -55,9 +52,6 @@ export default {
   margin-right: 60px
   @include displayRow
 .navButton
-  width: 277px
-  @include displayRow
-.link
   text-decoration: none
   @include font
 </style>
