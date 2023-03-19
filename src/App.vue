@@ -1,9 +1,16 @@
 <template>
-  <nav>
-  </nav>
-  <router-view/>
+  <nav-component />
+  <router-view />
 </template>
 
-<style lang="scss">
+<script>
+import NavComponent from "@/components/NavComponent";
+export default {
+  components: { NavComponent },
+};
+</script>
 
+<style lang="sass">
+body
+  margin: 0
 </style>
